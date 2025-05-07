@@ -61,6 +61,8 @@ void Toadstool::spread() {
                     // Jeśli pozycja jest wolna, rozprzestrzenić grzyba
                     Toadstool* newToadstool = new Toadstool(3, adjacentPos, getWorld());
                     newToadstool->setBirthTurn(getWorld()->getCurrentTurn());  // Ustawienie tury narodzin
+                    newToadstool->setAncestorsHistory(this->getAncestorsHistory());
+                    newToadstool->addAncestor(getWorld()->getCurrentTurn(), -1);
                     getWorld()->addOrganism(newToadstool);
                     std::cout << "Toadstool spread to position: " << adjacentPos.toString() << std::endl;
 

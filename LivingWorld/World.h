@@ -13,7 +13,7 @@ private:
 	int worldX;
 	int worldY;
 	int turn = 0;
-	vector<Organism*> organisms;
+	std::vector<Organism*> organisms;
 	char separator = '.';
 
 	string getOrganismFromPosition(int x, int y);
@@ -51,5 +51,6 @@ public:
 	Organism* getOrganismFromPosition(Position pos);
 	std::vector<Organism*> getOrganisms();
 	int getCurrentTurn() const { return turn; }
+	void handleDeath(Organism* organism);
 
 };

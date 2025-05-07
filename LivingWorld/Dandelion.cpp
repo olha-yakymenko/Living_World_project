@@ -56,6 +56,8 @@ void Dandelion::spread() {
             if (organismAtPos == nullptr) {
                 Dandelion* newDandelion = new Dandelion(3, adjacentPos, getWorld());
                 newDandelion->setBirthTurn(getWorld()->getCurrentTurn()); // Ustawienie tury narodzin
+                newDandelion->setAncestorsHistory(this->getAncestorsHistory());
+                newDandelion->addAncestor(getWorld()->getCurrentTurn(), -1);
 
                 getWorld()->addOrganism(newDandelion);
                 std::cout << "Dandelion spread to position: " << adjacentPos.toString() << std::endl;

@@ -61,6 +61,8 @@ void Grass::spread() {
                     // Tworzymy nową trawę na wolnej pozycji
                     Grass* newGrass = new Grass(3, adjacentPos, getWorld());
                     newGrass->setBirthTurn(getWorld()->getCurrentTurn());  // Ustawienie tury narodzin
+                    newGrass->setAncestorsHistory(this->getAncestorsHistory());
+                    newGrass->addAncestor(getWorld()->getCurrentTurn(), -1);
                     getWorld()->addOrganism(newGrass);
                     std::cout << "Grass spread to position: " << adjacentPos.toString() << std::endl;
                     setPower(getPower() / 2);  // Zmniejsz moc matki

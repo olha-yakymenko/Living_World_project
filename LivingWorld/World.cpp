@@ -39,6 +39,8 @@ void World::makeTurn(SDL_Renderer* renderer) {
 
         if (org->getLiveLength() <= 0 && org->getDeathTurn() == -1) {
             org->setDeathTurn(turn);  // Ustawiamy turę śmierci na bieżącą turę
+            handleDeath(org);  // aktualizacja historii przodków
+
         }
     }
 
@@ -362,4 +364,17 @@ void World::removeDeadOrganisms() {
 
 std::vector<Organism*> World::getOrganisms() {
     return organisms;
+}
+
+
+void World::handleDeath(Organism* organism) {
+    int currentTurn = getCurrentTurn();  // Zdobądź bieżącą turę
+
+    // Ustawienie tury śmierci
+    organism->setDeathTurn(currentTurn);
+
+    // Zaktualizowanie historii przodków
+    organism->updateAncestorDeathTurn();
+
+
 }
