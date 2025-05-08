@@ -49,9 +49,15 @@ Position Organism::getPosition() const {
     return position;
 }
 
-void Organism::setPosition(Position position) {
-    this->position = position;
+// void Organism::setPosition(Position position) {
+//     this->position = position;
+// }
+
+void Organism::setPosition(Position newPosition) {
+    lastPosition = position;  // zapisz starą pozycję
+    position = newPosition;   // ustaw nową
 }
+
 
 std::string Organism::getSpecies() const {
     return species;

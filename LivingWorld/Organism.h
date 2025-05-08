@@ -11,11 +11,13 @@ struct Ancestor {
   int birthTurn;
   int deathTurn;
 
+
   // Default constructor
   Ancestor() : birthTurn(0), deathTurn(-1) {}
 
   Ancestor(int birthTurn, int deathTurn)
       : birthTurn(birthTurn), deathTurn(deathTurn) {}
+
 };
 
 
@@ -114,4 +116,5 @@ protected:
     std::vector<Ancestor> ancestorsHistory;
     int birthTurn;
     int deathTurn;
+    Position lastPosition;
 };
